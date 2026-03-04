@@ -1,0 +1,713 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Modul SG i-Smile Minggu-1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="317f9660-f776-80ef-b152-fdcf8d076f64" class="page sans"><header><img class="page-cover-image" src="Modul%20SG%20i-Smile%20Minggu-1/image%2018.png" style="object-position:center 50%"/><h1 class="page-title" dir="auto">Modul SG i-Smile Minggu-1</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="317f9660-f776-80be-a76b-d99adf9d270c" class="">Daftar Isi</h1></div><div style="display:contents" dir="ltr"><nav id="317f9660-f776-80d6-93f3-fb43a39b83ff" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#317f9660-f776-80be-a76b-d99adf9d270c">Daftar Isi</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#317f9660-f776-80e4-ba92-d62d2e9adb08"><strong>A. Pengantar</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#317f9660-f776-8065-9c79-e1e7facd06a8"><strong>B. Tujuan</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#317f9660-f776-80df-8c97-d632060e9a63"><strong>C. Alat</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#317f9660-f776-8049-bdb3-f372d245499e"><strong>D. Materi Pembelajaran</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#317f9660-f776-80cd-85b5-f33f9ea82ee3"><strong>1. Machine Learning</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#317f9660-f776-80c0-927f-ee27ef83712f"><strong>2. Teachable Machine</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#317f9660-f776-8089-a933-fefd5587cede"><strong>E. Memulai Project Teachable Machine</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#317f9660-f776-8021-a8b6-edc6c206d412">E.1. Pengenalan Gambar</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#d008ad8e-5b69-41d8-a874-4363d45c11f2">Latar Belakang</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#120d11c5-64fb-4648-b56f-2750852c869e">Langkah-Langkah Praktik</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#317f9660-f776-80d0-b899-d06cf693ad1b">E.2. Pengenalan Suara</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#317f9660-f776-8057-8bed-c38470899cf3">E.3. Pengenalan Gerakan</a></div></nav></div><div style="display:contents" dir="auto"><h1 id="317f9660-f776-80e4-ba92-d62d2e9adb08" class=""><strong>A. Pengantar</strong></h1></div><div style="display:contents" dir="auto"><p id="317f9660-f776-8067-8ff6-c1491d4387e7" class="">Pada modul ini, kita akan belajar tentang <em>Teachable Machine</em>, <em>platform</em> yang memungkinkan kita untuk melatih mesin dalam mengenali objek, suara, atau gerakan. Teachable Machine adalah cara yang baik untuk memahami konsep dasar <em>Machine Learning</em> dan <em>computer vision</em>, dan kita akan memiliki kesempatan untuk membuat model sederhana yang dapat mengenali pola-pola yang kita tentukan.</p></div><div style="display:contents" dir="auto"><h1 id="317f9660-f776-8065-9c79-e1e7facd06a8" class=""><strong>B. Tujuan</strong></h1></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80b6-80bd-d64b4c665504" class="numbered-list" start="1"><li>Memahami konsep dasar <em>Machine Learning</em> dan pengenalan objek, suara, maupun gerakan.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-8094-b88b-f19ecf1deec5" class="numbered-list" start="2"><li>Mempelajari cara menggunakan <em>Teachable Machine</em> untuk melatih model dasar.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-809a-a761-d0e4bbef6cbb" class="numbered-list" start="3"><li>Membuat model yang dapat mengenali objek atau suara yang ditentukan.</li></ol></div><div style="display:contents" dir="auto"><h1 id="317f9660-f776-80df-8c97-d632060e9a63" class=""><strong>C. Alat</strong></h1></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80e4-a6e5-cafe00816a3f" class="numbered-list" start="1"><li>PC / Laptop</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80ba-a6df-eaa95ecd6e45" class="numbered-list" start="2"><li>Koneksi Internet</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-803c-a976-cb49cfdafb81" class="numbered-list" start="3"><li><em>Webcam</em> dan <em>Microphone</em></li></ol></div><div style="display:contents" dir="auto"><h1 id="317f9660-f776-8049-bdb3-f372d245499e" class=""><strong>D. Materi Pembelajaran</strong></h1></div><div style="display:contents" dir="auto"><h2 id="317f9660-f776-80cd-85b5-f33f9ea82ee3" class=""><strong>1. Machine Learning</strong></h2></div><div style="display:contents" dir="auto"><p id="317f9660-f776-8048-beef-c1fa4e4f2174" class=""><em>Machine Learning</em> (Pembelajaran Mesin) adalah cabang dari kecerdasan buatan yang mempelajari metode/algoritma agar komputer dapat belajar dari data (pengalaman) untuk menemukan pola, membuat prediksi, atau mengambil keputusan tanpa diprogram aturan-aturan spesifik untuk setiap kasus. Konsep ini banyak digunakan untuk masalah berbasis data seperti klasifikasi, regresi, dan penemuan struktur data.</p></div><div style="display:contents" dir="auto"><p id="317f9660-f776-800f-ab0c-c81583834a79" class="">Terdapat beberapa jenis utama <em>Machine Learning</em>:</p></div><div style="display:contents" dir="auto"><ul id="317f9660-f776-8061-ad0b-d7e08f57ba8b" class="bulleted-list"><li style="list-style-type:disc"><strong>Supervised Learning</strong>: Model dilatih menggunakan data berlabel, artinya setiap contoh pada data pelatihan memiliki “jawaban benar” berupa target/label. Tujuannya adalah mempelajari pemetaan dari input ke output untuk melakukan prediksi pada data baru, misalnya klasifikasi dan regresi.</li></ul></div><div style="display:contents" dir="auto"><ul id="317f9660-f776-8027-a38e-deaa96de2e70" class="bulleted-list"><li style="list-style-type:disc"><strong>Unsupervised Learning</strong>: Model mempelajari data tanpa label untuk menemukan pola/struktur tersembunyi. Pendekatan ini sering digunakan untuk clustering, reduksi dimensi, atau pemodelan distribusi data.</li></ul></div><div style="display:contents" dir="auto"><ul id="317f9660-f776-80d6-96c8-dabb663a2669" class="bulleted-list"><li style="list-style-type:disc"><strong>Reinforcement Learning</strong>: Agen belajar melalui interaksi dengan lingkungan. Agen memilih aksi, lalu menerima umpan balik berupa <em>reward</em> (hadiah) atau <em>penalty</em> (hukuman). Tujuannya adalah mempelajari strategi (<em>policy</em>) yang memaksimalkan total reward dalam jangka panjang.</li></ul></div><div style="display:contents" dir="auto"><h2 id="317f9660-f776-80c0-927f-ee27ef83712f" class=""><strong>2. Teachable Machine</strong></h2></div><div style="display:contents" dir="auto"><p id="317f9660-f776-801b-aa7e-da14e8df117d" class="">Teachable Machine adalah alat berbasis web dari Google Creative Lab yang membantu pengguna membuat model <em>machine learning</em> sederhana dengan cepat tanpa perlu menulis kode. Pengguna menyiapkan beberapa contoh untuk tiap kategori (kelas), misalnya gambar, suara, atau pose yang selanjutnya alat ini melatih model agar mampu mengenali input baru berdasarkan contoh yang diberikan.</p></div><div style="display:contents" dir="auto"><p id="317f9660-f776-8003-bcd4-ceca03649101" class="">Dalam praktik pembelajaran, Teachable Machine sering dipakai untuk memahami <em>Supervised Learning</em> karena pengguna biasanya memberi contoh per kelas seperti halnya kucing dengan anjing sehingga model belajar membedakan kelas-kelas tersebut saat melakukan prediksi.</p></div><div style="display:contents" dir="auto"><p id="317f9660-f776-80ce-ad0f-c32fe63c3f1d" class="">Teachable Machine mendukung pelatihan model untuk gambar, suara, dan pose. Hasil model dapat digunakan kembali untuk proyek seperti situs web atau aplikasi (misalnya untuk prototipe pembelajaran dan eksperimen)</p></div><div style="display:contents" dir="ltr"><figure id="317f9660-f776-808c-b475-da2f15b7c463" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/c745e24e-2d6f-4373-a4b0-8b8ebc2cf2a7.png"><img style="width:710px" src="Modul%20SG%20i-Smile%20Minggu-1/c745e24e-2d6f-4373-a4b0-8b8ebc2cf2a7.png"/></a><figcaption><em>Gambar 1. Tiga pilihan jenis Project dalam Teachable Machine</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="317f9660-f776-80a6-8f16-c273e5d35954" class="">Teachable Machine mendukung tiga jenis pengenalan utama:</p></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-8085-a1de-fb65f1c99add" class="numbered-list" start="1"><li><strong>Pengenalan Gambar:</strong> Mesin dapat dilatih untuk mengenali objek atau pola visual tertentu di dalam gambar. Contohnya pada gambar di bawah ini, mesin telah dilatih menggunakan sampel <em>webcam</em> untuk mengenali dan membedakan gestur tangan pada permainan Batu, Gunting, Kertas (<em>rock, paper, scissors</em>). Saat pengguna menunjukkan gestur gunting di depan kamera, mesin berhasil mendeteksinya dengan akurasi 100% pada kelas <em>scissors</em>.<div style="display:contents" dir="ltr"><figure id="317f9660-f776-80e0-b3a8-c817169f0e73" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/576ad00f-6cd2-4f11-8d4a-88a13c07edf1.png"><img style="width:574.188679245283px" src="Modul%20SG%20i-Smile%20Minggu-1/576ad00f-6cd2-4f11-8d4a-88a13c07edf1.png"/></a><figcaption><em>Gambar 2. Contoh pengenalan gambar gestur tangan (Batu, Gunting, Kertas)</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80bf-aba1-d9e77f76d120" class="numbered-list" start="2"><li><strong>Pengenalan Suara:</strong> Mesin dapat dilatih untuk mengenali berbagai jenis suara manusia atau lingkungan. Dalam contoh di bawah, data latih (<em>train</em>) berupa suara <em>background noise, clapping, and snap.</em><div style="display:contents" dir="ltr"><figure id="317f9660-f776-8049-8127-d630c0a3faca" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/25788c5a-134f-4e69-9dcd-70c2da8e1edd.png"><img style="width:612.2048997772829px" src="Modul%20SG%20i-Smile%20Minggu-1/25788c5a-134f-4e69-9dcd-70c2da8e1edd.png"/></a><figcaption><em>Gambar 3. Contoh pengenalan suara</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-8059-b783-c44fa8e90773" class="numbered-list" start="3"><li><strong>Pengenalan Gerakan:</strong> Memungkinkan pengenalan gerakan atau postur tubuh dengan kamera <em>webcam</em>. Contohnya membedakan gerakan berdiri (<em>Standing</em>) dan duduk (<em>Sitting</em>).<div style="display:contents" dir="ltr"><figure id="317f9660-f776-80e7-840e-fdc5cea516c2" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/cad08d2f-caf3-4bdd-9a32-2b6ff853cebc.png"><img style="width:646.4887940234793px" src="Modul%20SG%20i-Smile%20Minggu-1/cad08d2f-caf3-4bdd-9a32-2b6ff853cebc.png"/></a><figcaption><em>Gambar 4. Contoh pengenalan gerakan</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><hr id="317f9660-f776-8046-b2c6-e7c979ecc299"/></div><div style="display:contents" dir="auto"><h1 id="317f9660-f776-8089-a933-fefd5587cede" class=""><strong>E. Memulai Project Teachable Machine</strong></h1></div><div style="display:contents" dir="auto"><p id="317f9660-f776-8025-8ede-e7bdf833a5c8" class=""><strong>Langkah Persiapan Awal:</strong><br/>Buka <em>browser web</em> (Google Chrome atau Edge). Kunjungi situs web Teachable Machine di alamat: <a href="https://teachablemachine.withgoogle.com/**">https://teachablemachine.withgoogle.com/</a>. Kemudian klik tombol <strong>&quot;Get Started&quot;</strong>.</p></div><div style="display:contents" dir="ltr"><figure id="317f9660-f776-80f7-9f60-e64dcb83e508" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/Screenshot_From_2026-03-03_03-44-47.png"><img style="width:709.984375px" src="Modul%20SG%20i-Smile%20Minggu-1/Screenshot_From_2026-03-03_03-44-47.png"/></a><figcaption><em>Gambar 5. Tampilan halaman depan Teachable Machine</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="317f9660-f776-80ad-a936-ecf2103dce16" class="">Setelah itu, Anda akan dihadapkan pada 3 pilihan tipe proyek. Mari kita coba satu per satu.</p></div><div style="display:contents" dir="auto"><h2 id="317f9660-f776-8021-a8b6-edc6c206d412" class="">E.1. Pengenalan Gambar</h2></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="2fbc97ea-cfbf-4b5f-95fb-7d937f7d38fb"><div style="font-size:1.5em"><span class="icon">🎯</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="8615b579-5d74-4d1f-a0c1-a1abcd186efe" class=""><strong>Studi Kasus: Pengenalan Gestur Tangan — Batu, Gunting, Kertas (</strong><em><strong>Rock, Paper, Scissors</strong></em><strong>)</strong></p></div><div style="display:contents" dir="auto"><p id="5bb19074-998f-457f-867e-b85e9eb039a3" class="">Pada praktik ini, kita akan melatih model untuk mengenali tiga gestur tangan: <strong>Batu (</strong><em><strong>Rock</strong></em><strong>)</strong>, <strong>Gunting (</strong><em><strong>Scissors</strong></em><strong>)</strong>, dan <strong>Kertas (</strong><em><strong>Paper</strong></em><strong>)</strong>. Model ini akan belajar membedakan ketiga gestur hanya dari tampilan visual tangan yang ditangkap <em>webcam</em>.</p></div></div></figure></div><div style="display:contents" dir="auto"><h3 id="d008ad8e-5b69-41d8-a874-4363d45c11f2" class="">Latar Belakang</h3></div><div style="display:contents" dir="auto"><p id="f7fae8b0-3278-41cc-8ec8-f4737c8006d5" class="">Permainan Batu Gunting Kertas (<em>Rock Paper Scissors</em>) adalah contoh klasik yang sangat cocok untuk mempraktikkan <em>computer vision</em> karena:</p></div><div style="display:contents" dir="auto"><ul id="2a538d6a-be1d-4140-beb3-cfd50e6ebc55" class="bulleted-list"><li style="list-style-type:disc">Memiliki jumlah kelas yang jelas dan terbatas (3 kelas).</li></ul></div><div style="display:contents" dir="auto"><ul id="73f18431-9a5e-4c3c-9fdc-45fb04ac74af" class="bulleted-list"><li style="list-style-type:disc">Perbedaan visual antar gestur cukup signifikan sehingga model lebih mudah belajar.</li></ul></div><div style="display:contents" dir="auto"><p id="e86a64f2-ea69-4ea1-800b-7624a1b1ad0a" class="">Dalam praktik ini, komputer akan &quot;melihat&quot; tangan kita melalui <em>webcam</em> dan menentukan apakah gestur yang ditampilkan adalah Batu, Gunting, atau Kertas.</p></div><div style="display:contents" dir="auto"><h3 id="120d11c5-64fb-4648-b56f-2750852c869e" class="">Langkah-Langkah Praktik</h3></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-805e-beb6-eb02bfa1a5bb" class="numbered-list" start="1"><li>Pada menu pilihan <em>Project</em>, klik <em><strong>Image Project</strong></em>.<div style="display:contents" dir="ltr"><figure id="317f9660-f776-80fd-a3ed-c7203e9b6abb" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image.png"><img style="width:681.96875px" src="Modul%20SG%20i-Smile%20Minggu-1/image.png"/></a><figcaption><em>Gambar 6. Pilihan menu Image Project</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80b6-b26f-e56a60ed76be" class="numbered-list" start="2"><li>Selanjutnya akan diberikan dua opsi. Pilih <em><strong>Standard Image Model</strong></em>.<br/><em>(Catatan: Opsi &quot;Embedded Image Model&quot; digunakan jika kita ingin menanamkan model pada mikrokontroler dengan memori terbatas. Untuk study group modul pertama ini, Standard Model dipilih).</em><div style="display:contents" dir="ltr"><figure id="317f9660-f776-8061-9018-c83f8806256c" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%201.png"><img style="width:681.96875px" src="Modul%20SG%20i-Smile%20Minggu-1/image%201.png"/></a><figcaption><em>Gambar 7. Tampilan pilihan Standard Image Model</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="06e5de6d-71d9-44d6-bfca-649c3cbe3074" class="numbered-list" start="3"><li>Secara <em>default</em>, Teachable Machine hanya menyediakan dua kelas. Karena kita membutuhkan <strong>tiga kelas</strong>, kita perlu menambahkan satu kelas lagi. Ubah nama kelas menjadi:<div style="display:contents" dir="auto"><ul id="dc874130-7165-4b0c-b238-abc899e52fcd" class="bulleted-list"><li style="list-style-type:disc"><strong>&quot;Class 1&quot;</strong> untuk <strong>&quot;</strong><em><strong>Rock</strong></em><strong>&quot;</strong> (Batu)</li></ul></div><div style="display:contents" dir="auto"><ul id="19c15c81-933a-4f62-8f64-a56ab7e1030d" class="bulleted-list"><li style="list-style-type:disc"><strong>&quot;Class 2&quot;</strong> untuk <strong>&quot;</strong><em><strong>Scissors</strong></em><strong>&quot;</strong> (Gunting)</li></ul></div><div style="display:contents" dir="auto"><ul id="0fae2da8-ec9a-47ac-b402-2e031ec8e127" class="bulleted-list"><li style="list-style-type:disc">Klik <strong>&quot;Add a class&quot;</strong> untuk beri nama <strong>&quot;</strong><em><strong>Paper</strong></em><strong>&quot;</strong> (Kertas)</li></ul></div><div style="display:contents" dir="ltr"><figure id="317f9660-f776-807b-94c1-f2751ae57b35" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%202.png"><img style="width:681.984375px" src="Modul%20SG%20i-Smile%20Minggu-1/image%202.png"/></a><figcaption><em>Gambar 8. Tampilan isian kelas</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="18696ed3-0027-4db7-bbee-a1c702eb8d54" class="">Ketiga label ini adalah kategori yang akan dipelajari oleh komputer.</p></div><div style="display:contents" dir="ltr"><figure id="317f9660-f776-8039-a4cd-ef8a4fbe9297" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%203.png"><img style="width:681.96875px" src="Modul%20SG%20i-Smile%20Minggu-1/image%203.png"/></a><figcaption><em>Gambar 9. Tampilan tiga kelas gestur tangan</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80cb-a25a-e85512744913" class="numbered-list" start="4"><li><strong>Mengumpulkan Data Latih — Kelas Batu (</strong><em><strong>Rock</strong></em><strong>)</strong><div style="display:contents" dir="auto"><p id="e2eb54bb-f7e8-4327-946d-7a2e086de1db" class="">Pada kelas <em>Rock</em>, klik ikon <strong>Webcam</strong>. </p></div><div style="display:contents" dir="ltr"><figure id="317f9660-f776-802a-80b8-d56594be0c4a" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%204.png"><img style="width:681.953125px" src="Modul%20SG%20i-Smile%20Minggu-1/image%204.png"/></a><figcaption>Gambar 10. Tampilan pilihan pengambilan data latih</figcaption></figure></div><div style="display:contents" dir="auto"><p id="317f9660-f776-80f1-8254-c2203f2ad0ca" class="">Setelah diklik, tampilan antarmuka <em>webcam</em> akan muncul seperti gambar berikut.</p></div><div style="display:contents" dir="ltr"><figure id="317f9660-f776-80fa-a952-db771574534d" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%205.png"><img style="width:681.96875px" src="Modul%20SG%20i-Smile%20Minggu-1/image%205.png"/></a><figcaption><em>Gambar 11. Tampilan antarmuka Webcam setelah tombol Webcam diklik</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="b0071f9c-b7f2-4e1b-b445-81a29edb42a8" class="">Sebelum merekam, kita perlu mengatur pengaturan terlebih dahulu. Klik ikon <strong>gerigi (⚙️ Settings)</strong> yang berada di sebelah kanan tombol <strong>&quot;Hold to Record&quot;</strong>. Akan muncul panel pengaturan seperti gambar berikut.</p></div><div style="display:contents" dir="ltr"><figure id="317f9660-f776-8080-895d-ee0e04eecf9a" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%206.png"><img style="width:336px" src="Modul%20SG%20i-Smile%20Minggu-1/image%206.png"/></a><figcaption><em>Gambar 12. Panel pengaturan pengambilan sampel</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="3bf75e8f-6bfc-4d47-b234-cff9470542da" class="">Lakukan pengaturan berikut pada panel <em>Settings</em>:</p></div><div style="display:contents" dir="auto"><ul id="e156bc83-911c-4aae-a335-ef8489936548" class="bulleted-list"><li style="list-style-type:disc"><strong>Hold to Record:</strong> Secara <em>default</em> bernilai <strong>ON</strong> — ubah menjadi <strong>OFF</strong> agar perekaman berjalan otomatis tanpa harus menahan tombol.</li></ul></div><div style="display:contents" dir="auto"><ul id="fac86510-68c1-4818-acf1-4da08a654bdd" class="bulleted-list"><li style="list-style-type:disc"><strong>Duration:</strong> Isi dengan <strong>10</strong> detik. Dengan FPS sebesar 24 sampel per detik, dalam 10 detik akan diperoleh 200+ sampel gambar.</li></ul></div><div style="display:contents" dir="auto"><p id="b6e6423d-f17c-4368-8ef8-873e2e8f3b81" class="">Setelah selesai, klik tombol <strong>&quot;Save Settings&quot;</strong> untuk menyimpan konfigurasi.</p></div><div style="display:contents" dir="auto"><p id="78ed05dc-0c33-4335-bc7b-a8fa82aa2589" class="">Selanjutnya, klik tombol <strong>&quot;Record&quot;</strong> (nama tombol kini berubah menjadi <strong>&quot;Record 10 Seconds&quot;</strong> sesuai durasi yang telah diatur). Sebelum merekam, pastikan:</p></div><div style="display:contents" dir="auto"><ul id="398eb87e-b700-4db6-bec2-41c07fd5e2cc" class="bulleted-list"><li style="list-style-type:disc"><strong>Izin kamera</strong> telah diberikan pada browser Anda.</li></ul></div><div style="display:contents" dir="auto"><ul id="594eca05-9124-4843-8a22-86ca04477e2f" class="bulleted-list"><li style="list-style-type:disc"><strong>Webcam</strong> sudah menyala dan menampilkan gambar.</li></ul></div><div style="display:contents" dir="ltr"><figure id="317f9660-f776-80a9-b04f-e6467de28395" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%207.png"><img style="width:336px" src="Modul%20SG%20i-Smile%20Minggu-1/image%207.png"/></a><figcaption><em>Gambar 13. Tombol Record 10 Seconds siap diklik</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="abf91c1b-6bec-44f6-82a3-d71985a1a657" class="">Setelah tombol <strong>&quot;Record 10 Seconds&quot;</strong> diklik, perekaman belum langsung dimulai dan akan ada hitungan mundur 5 detik terlebih dahulu. Gunakan waktu ini untuk mempersiapkan posisi tangan Anda.</p></div><div style="display:contents" dir="auto"><p id="7197fc76-46c6-4a3f-be44-5bfafa3f701a" class="">Selama perekaman berlangsung, <strong>gerakkan tangan yang mengepal ke berbagai arah</strong> secara perlahan dan bervariasi, seperti:</p></div><div style="display:contents" dir="auto"><ul id="317f9660-f776-8002-8f5f-e0e70dffdee2" class="bulleted-list"><li style="list-style-type:disc">Miringkan kepalan ke kiri, kanan, atas, dan bawah.</li></ul></div><div style="display:contents" dir="auto"><ul id="fe953579-cb71-4672-9daa-508a8891d117" class="bulleted-list"><li style="list-style-type:disc">Dekatkan dan jauhkan tangan dari kamera.</li></ul></div><div style="display:contents" dir="auto"><ul id="d6f536eb-044d-4396-8091-1ec47f023a43" class="bulleted-list"><li style="list-style-type:disc">Putar pergelangan tangan perlahan agar model mengenal gestur dari berbagai sudut pandang.</li></ul></div><div style="display:contents" dir="ltr"><figure id="317f9660-f776-8001-bf34-cc0ae67cc5ce" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/5f0824cc-0337-4714-a949-cd02a18c13af.png"><img style="width:384px" src="Modul%20SG%20i-Smile%20Minggu-1/5f0824cc-0337-4714-a949-cd02a18c13af.png"/></a><figcaption><em>Gambar 14. Contoh variasi gerakan kepalan tangan saat perekaman</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="e1114ead-eea3-42ee-b135-879d0ac4b347" class="">Setelah perekaman selesai, Anda akan melihat <em>thumbnails</em> sampel gambar yang berhasil dikumpulkan muncul di panel kanan. Pastikan jumlah sampel sudah mencapai 200 sampel atau lebih.</p></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="6663b2e7-2e7c-42d7-b03e-a6ee567eca08"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="f888a3eb-b2f6-4682-bd6d-6883cdd82f16" class=""><strong>Tips:</strong> Semakin beragam posisi dan sudut tangan yang direkam, semakin akurat model dalam mengenali gestur di kondisi nyata. Jika dirasa kurang, klik <strong>&quot;Record 10 Seconds&quot;</strong> kembali untuk menambah sampel.</p></div></div></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-800e-b407-ee92b071dc37" class="numbered-list" start="5"><li><strong>Mengumpulkan Data Latih — Kelas Gunting (</strong><em><strong>Scissors</strong></em><strong>)</strong><div style="display:contents" dir="auto"><p id="7f1c7d4f-390c-467e-86fa-a3b2c9e972f7" class="">Bentuk gestur <strong>Gunting</strong> dengan mengacungkan jari telunjuk dan jari tengah membentuk huruf &quot;V&quot;, sementara jari lainnya dilipat.</p></div><div style="display:contents" dir="auto"><p id="f1d94017-e4fb-4073-b28e-a1f4a980c6c0" class="">Klik kelas <em>Scissors</em>, lalu klik <strong>Webcam</strong>. Ulangi<strong> </strong>langkah yang sama seperti pada kelas <em>Rock</em> lalu klik <strong>&quot;Record 10 Seconds&quot;</strong>. Variasikan sudut, jarak, dan orientasi tangan selama perekaman. Kumpulkan 200+ sampel.</p></div><div style="display:contents" dir="ltr"><figure id="317f9660-f776-8022-b856-e83ed6069251" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/ebdf26e7-4874-41b8-b203-44773d2398a5.png"><img style="width:384px" src="Modul%20SG%20i-Smile%20Minggu-1/ebdf26e7-4874-41b8-b203-44773d2398a5.png"/></a><figcaption><em>Gambar 15. Perekaman sampel gestur Gunting</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80f4-9e20-e280bf412b7f" class="numbered-list" start="6"><li><strong>Mengumpulkan Data Latih — Kelas Kertas (</strong><em><strong>Paper</strong></em><strong>)</strong><div style="display:contents" dir="auto"><p id="346e4663-da48-49c0-bd59-ec37b3037633" class="">Bentuk gestur <strong>Kertas</strong> dengan membuka semua jari tangan selebar mungkin dan merentangkannya menghadap ke kamera.</p></div><div style="display:contents" dir="auto"><p id="98e3075f-7790-4eb6-837e-cff13910f82f" class="">Klik kelas <em>Paper</em>, lalu klik <strong>Webcam</strong>. Ulangi kembali<strong> </strong>langkah yang sama lalu klik <strong>&quot;Record 10 Seconds&quot;</strong>. Gerakkan tangan terbuka ke berbagai arah dan jarak selama perekaman. Kumpulkan 200+ sampel.</p></div><div style="display:contents" dir="ltr"><figure id="317f9660-f776-80f1-b9c6-dd20633a7fe8" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/236518e1-0184-4544-8828-f7d289c663db.png"><img style="width:384px" src="Modul%20SG%20i-Smile%20Minggu-1/236518e1-0184-4544-8828-f7d289c663db.png"/></a><figcaption><em>Gambar 16. Perekaman sampel gestur Kertas</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80e9-85bc-fd1897f988ba" class="numbered-list" start="7"><li>Setelah data latih dari ketiga kelas (<em>Rock</em>, <em>Scissors</em>, <em>Paper</em>) terkumpul, klik tombol <strong>&quot;Train Model&quot;</strong> di panel kanan.<div style="display:contents" dir="ltr"><figure id="317f9660-f776-8072-9f95-feddc9c796a3" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%208.png"><img style="width:681.984375px" src="Modul%20SG%20i-Smile%20Minggu-1/image%208.png"/></a><figcaption><em>Gambar 17. Tombol Train Model untuk memulai fase pelatihan</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="b86d0876-0c92-4358-9f76-66ee15238270" class="">Proses ini akan memulai fase <strong>transfer learning</strong> — yaitu teknik di mana model yang sudah dilatih sebelumnya (oleh Google) pada jutaan gambar digunakan sebagai dasar, lalu disesuaikan (<em>fine-tuned</em>) dengan sampel kelas yang baru saja kita kumpulkan. Karena itulah pelatihan di Teachable Machine berlangsung sangat cepat meskipun sampel kita terbatas.</p></div><div style="display:contents" dir="ltr"><figure id="317f9660-f776-80df-98ba-e15327af6bac" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%209.png"><img style="width:681.96875px" src="Modul%20SG%20i-Smile%20Minggu-1/image%209.png"/></a><figcaption><em>Gambar 18. Tampilan proses Train Model</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="680c776a-34ad-4205-b39b-0ab228c597ca" class="">Tunggu hingga proses pelatihan selesai. Selama proses pelatihan, <strong>pastikan untuk tidak membuka/pindah ke tab </strong><em><strong>browser</strong></em><strong> lain </strong>karena dapat mengganggu proses.</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-8075-b528-d4f2398533ad" class="numbered-list" start="8"><li><strong>Menguji Model</strong><div style="display:contents" dir="auto"><p id="02384d71-50df-4715-82b8-12a6f4a2852c" class="">Setelah pelatihan selesai, model langsung dapat diuji pada panel <em>Preview</em> di sebelah kanan. Coba tampilkan masing-masing gestur tangan ke kamera:</p></div><div style="display:contents" dir="auto"><ul id="c3949384-5f72-4171-83b0-e9c67f0ae543" class="bulleted-list"><li style="list-style-type:disc">Tunjukkan gestur Batu lalu perhatikan bar persentase pada <em>Output</em>, seharusnya tinggi di kelas &quot;Rock&quot;.</li></ul></div><div style="display:contents" dir="auto"><ul id="317f9660-f776-80ef-9193-f75129eb6ffc" class="bulleted-list"><li style="list-style-type:disc">Tunjukkan gestur Gunting dan seharusnya tinggi di kelas &quot;Scissors&quot;.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b0041c8-f999-4c08-8363-f67235a6c181" class="bulleted-list"><li style="list-style-type:disc">Tunjukkan gestur Kertas dan seharusnya tinggi di kelas &quot;Paper&quot;.</li></ul></div><div style="display:contents" dir="auto"><p id="90963929-0074-41cf-aad0-7e00f82aa7ac" class="">Jika semua gestur terdeteksi dengan akurasi berada di rentang angka <strong>90-100%</strong>, berarti model telah belajar dengan baik!</p></div><div style="display:contents" dir="ltr"><figure id="317f9660-f776-806e-a179-eafa87037a43" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/203e4818-1ce7-40b5-b5a4-9c588918301c.png"><img style="width:288px" src="Modul%20SG%20i-Smile%20Minggu-1/203e4818-1ce7-40b5-b5a4-9c588918301c.png"/></a><figcaption><em>Gambar 19. Uji coba model pengenalan gestur tangan</em></figcaption></figure></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="1e4c7142-9e26-461a-aa47-eb1967dec8df"><div style="font-size:1.5em"><span class="icon">🔍</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="a4d788b0-f4f3-47d1-8e21-77690ce1dc2b" class=""><strong>Apa yang terjadi jika akurasi rendah?</strong> Coba tambah jumlah sampel pada kelas yang sering salah dikenali, lalu latih ulang modelnya. Semakin banyak dan beragam data latih, semakin baik performa model.</p></div></div></figure></div></li></ol></div><div style="display:contents" dir="auto"><h2 id="317f9660-f776-80d0-b899-d06cf693ad1b" class="">E.2. Pengenalan Suara</h2></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-8027-bc04-ff709fe62b1d" class="numbered-list" start="1"><li>Kembali ke halaman <em>New Project</em>, kali ini pilih <strong>Audio Project</strong>.<div style="display:contents" dir="ltr"><figure id="319f9660-f776-80a7-a1c0-cc3f877c47a4" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%2010.png"><img style="width:681.96875px" src="Modul%20SG%20i-Smile%20Minggu-1/image%2010.png"/></a><figcaption><em>Gambar 20. Pilihan menu Audio Project</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-801b-bc30-c9da5210a358" class="numbered-list" start="2"><li>Dalam kegiatan ini, kita akan membuat model yang mengenali dua kalimat, yaitu: <strong>&quot;Hidup Jokowi&quot;</strong> dan <strong>&quot;Antek asing&quot;</strong>. Namun untuk audio, wajib ada satu kelas tambahan bawaan yaitu <strong>Background Noise</strong> (suara gangguan dalam ruangan).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80bf-9323-c9384b1a000e" class="numbered-list" start="3"><li>Pada <em>Class</em> pertama (Background Noise), klik <strong>Mic</strong>. Tekan <strong>&quot;Record 20 Seconds&quot;</strong> lalu diamkan mikrofon merekam kebisingan ruangan. Setelah selesai, klik <strong>&quot;Extract Sample&quot;</strong>.<div style="display:contents" dir="ltr"><figure id="319f9660-f776-8051-8d91-f450fcbae0d5" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/69c24b6c-99a9-40ef-bb5a-7682d2cd4d1c.png"><img style="width:672px" src="Modul%20SG%20i-Smile%20Minggu-1/69c24b6c-99a9-40ef-bb5a-7682d2cd4d1c.png"/></a><figcaption><em>Gambar 21. Proses Perekaman Background Noise</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="319f9660-f776-80a9-b13c-d75f30c368c4" class="">Setelah perekaman selesai, klik pada tombol <strong>“Extract Sample” </strong>untuk mengekstrak audio yang telah direkam menjadi 20 audio terpotong.</p></div><div style="display:contents" dir="ltr"><figure id="319f9660-f776-801f-9af9-d698f88a9e5a" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%2011.png"><img style="width:336px" src="Modul%20SG%20i-Smile%20Minggu-1/image%2011.png"/></a><figcaption>Gambar 22. Ekstrak Sampel Perekaman Background Noise</figcaption></figure></div><div style="display:contents" dir="auto"><p id="319f9660-f776-805e-90bc-d0f5ffa3e3dd" class="">Sekarang Anda akan melihat hasil adio terpotong yang sudah siap dipakai.</p></div><div style="display:contents" dir="ltr"><figure id="319f9660-f776-8048-9280-c8318d58b2d7" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/35ed9974-ce1b-4a44-8e30-328bed17c112.png"><img style="width:336px" src="Modul%20SG%20i-Smile%20Minggu-1/35ed9974-ce1b-4a44-8e30-328bed17c112.png"/></a><figcaption>Gambar 23. Sampel Perekaman Background Noise</figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80e3-89fa-eb97b29519cf" class="numbered-list" start="4"><li>Ubah &quot;Class 2&quot; menjadi <strong>&quot;Hidup Jokowi&quot;</strong>. Klik <strong>Mic</strong>. Pada ikon gerigi (<em>Settings</em>), Anda bisa mengubah durasi rekam menjadi 20 detik. Tekan <strong>&quot;Record&quot;</strong>, lalu ucapkan &quot;Hidup Jokowi&quot; berulang kali dengan nada berbeda. Setelah selesai, klik <strong>Extract Sample</strong>.<div style="display:contents" dir="ltr"><figure id="319f9660-f776-8032-be47-daf076e6e149" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%2012.png"><img style="width:681.984375px" src="Modul%20SG%20i-Smile%20Minggu-1/image%2012.png"/></a><figcaption><em>Gambar 24. Perekaman kelas suara pertama</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-8000-b9a3-e99dffb9bcca" class="numbered-list" start="5"><li>Tambahkan kelas baru (<em>Add a class</em>), beri nama <strong>&quot;Antek asing&quot;</strong>. Ulangi proses yang sama: Rekam selama 10 detik sambil mengucapkan &quot;Antek asing&quot; berulang kali, lalu ekstrak sampelnya.<div style="display:contents" dir="ltr"><figure id="319f9660-f776-80b4-95e9-e92c67b0b5bd" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%2013.png"><img style="width:681.984375px" src="Modul%20SG%20i-Smile%20Minggu-1/image%2013.png"/></a><figcaption><em>Gambar 25. Perekaman kelas suara kedua</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80d3-8e02-e8668e0f119b" class="numbered-list" start="6"><li>Klik <strong>Train Model</strong>. Ingat, jangan membuka tab lain selama proses <em>training</em> berlangsung.<div style="display:contents" dir="ltr"><figure id="319f9660-f776-803a-a39e-dd64c0cc4a7a" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/Screenshot_From_2026-03-04_16-47-00.png"><img style="width:681.984375px" src="Modul%20SG%20i-Smile%20Minggu-1/Screenshot_From_2026-03-04_16-47-00.png"/></a><figcaption><em>Gambar 25. Proses pelatihan audio</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80fc-ae4d-cbadf1172d36" class="numbered-list" start="7"><li>Lakukan uji coba (<em>Preview</em>). Bicaralah ke depan <em>microphone</em> Anda dan lihat apakah bar persentase pada <em>Output</em> menunjukkan angka yang tinggi sesuai dengan kalimat yang Anda sebutkan. Dalam contoh ini, akurasi pengenalan suara berhasil menangkap dengan baik pada kelas “Hidup Jokowi”. <div style="display:contents" dir="ltr"><figure id="319f9660-f776-8084-864f-e45e576633f4" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/19787c06-a389-43df-bfab-12aa077d8a64.png"><img style="width:288px" src="Modul%20SG%20i-Smile%20Minggu-1/19787c06-a389-43df-bfab-12aa077d8a64.png"/></a><figcaption><em>Gambar 26. Evaluasi model pengenalan suara</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><h2 id="317f9660-f776-8057-8bed-c38470899cf3" class="">E.3. Pengenalan Gerakan</h2></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80df-bcf6-e4d9744b9003" class="numbered-list" start="1"><li>Kembali ke halaman awal <em>New Project</em>, lalu pilih <strong>Pose Project</strong>.<div style="display:contents" dir="ltr"><figure id="319f9660-f776-805b-8d10-f224c1f10fad" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/342247fa-d716-4345-beef-88238277e6ca.png"><img style="width:710px" src="Modul%20SG%20i-Smile%20Minggu-1/342247fa-d716-4345-beef-88238277e6ca.png"/></a><figcaption><em>Gambar 27. Pilihan menu Pose Project</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="7f0ce9c7-8c51-492a-9a8a-739ca33fa3af" class="numbered-list" start="2"><li>Kita akan menggunakan <strong>tiga kelas pose</strong>, yaitu: <strong>&quot;Neutral&quot;</strong>, <strong>&quot;Iziinnn&quot;</strong>, dan <strong>&quot;Tidak&quot;</strong>. Kelas <strong>Neutral</strong> berfungsi sebagai kelas penampung untuk pose biasa/berdiri tegap, sehingga model tidak bias ketika postur tubuh tidak termasuk ke dalam kelas manapun — mirip seperti kelas <em>Background Noise</em> pada pengenalan suara.<div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="0da2b132-053d-4009-b378-a06288ec66df"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="e80b3ea5-91b5-41f2-b783-345c04828808" class=""><strong>Mengapa perlu kelas Neutral?</strong> Tanpa kelas Neutral, model akan selalu memaksa setiap pose masuk ke salah satu kelas yang ada (&quot;Iziinnn&quot; atau &quot;Tidak Iziinnn&quot;), bahkan ketika pengguna hanya berdiri biasa. Kelas Neutral memberi model referensi untuk kondisi &quot;tidak ada pose khusus&quot;.</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="52351cb6-d44e-4f8f-adf5-fbfd5aadfe32" class="">Ubah nama kelas 1, kelas 2, dan tambahkan kelas ketiga sesuai nama gerakan tersebut:</p></div><div style="display:contents" dir="auto"><ul id="59b3dff3-f1c7-47b9-8979-5353b4d156a1" class="bulleted-list"><li style="list-style-type:disc"><strong>&quot;Class 1&quot;</strong> → <strong>&quot;Neutral&quot;</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="9a00239d-9773-4fa4-9335-cd27f7d57901" class="bulleted-list"><li style="list-style-type:disc"><strong>&quot;Class 2&quot;</strong> → <strong>&quot;Iziinnn&quot;</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="d703de7b-395e-469e-8235-ef0aeb57b2b5" class="bulleted-list"><li style="list-style-type:disc">Klik <strong>&quot;Add a class&quot;</strong> → beri nama <strong>&quot;Tidak Iziinnn&quot;</strong></li></ul></div><div style="display:contents" dir="ltr"><figure id="319f9660-f776-80b0-9bd2-c143f95421d6" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/3fa3c759-7f40-46ba-9af7-044799d40621.png"><img style="width:432px" src="Modul%20SG%20i-Smile%20Minggu-1/3fa3c759-7f40-46ba-9af7-044799d40621.png"/></a><figcaption><em>Gambar 27. Nama tiap kelas Pose Project</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80e6-9e23-c1b5677c23cc" class="numbered-list" start="3"><li>Pada kelas <strong>Neutral</strong>, klik <strong>Webcam</strong>. Mundur sedikit agar seluruh postur tubuh Anda terlihat. Berdiri tegap dalam posisi normal (tanpa gerakan khusus). Tekan tombol <strong>&quot;Record 10 Seconds&quot;</strong> sambil mengubah sudut pandang (<em>Point of View</em>/POV) secara perlahan — misalnya sedikit miring ke kiri, kanan, maju, atau mundur. Kumpulkan sekitar 200+ <em>pose sample</em>.<div style="display:contents" dir="ltr"><figure id="319f9660-f776-8052-9386-ed7638065a3a" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/20fe90d1-fe61-4ec1-bcff-e3110f0091ae.png"><img style="width:385.27363184079604px" src="Modul%20SG%20i-Smile%20Minggu-1/20fe90d1-fe61-4ec1-bcff-e3110f0091ae.png"/></a><figcaption><em>Gambar 28. Perekaman postur Neutral (berdiri tegap dari berbagai sudut)</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-8025-9d31-e89d9dda22d2" class="numbered-list" start="4"><li>Pada kelas <strong>Iziinnn</strong>, klik <strong>Webcam</strong>. Mundur sedikit agar postur tangan dan wajah Anda terlihat. Tekan tombol <strong>&quot;Record 10 Seconds&quot;</strong> sambil melakukan gestur izin. Kumpulkan sekitar 200+ <em>pose sample</em>.<div style="display:contents" dir="ltr"><figure id="319f9660-f776-800b-9ab6-e8d558ea8d82" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/35562707-36a0-4bbf-94ed-813de8c252e9.png"><img style="width:386.2251655629139px" src="Modul%20SG%20i-Smile%20Minggu-1/35562707-36a0-4bbf-94ed-813de8c252e9.png"/></a><figcaption><em>Gambar 29. Perekaman postur Tangan Iziinnn</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80f6-828b-ebef143f046e" class="numbered-list" start="5"><li>Pada kelas <strong>Tidak Iziinnn</strong>, rekam menggunakan <em>Webcam</em> dengan menekan <strong>&quot;Record 10 Seconds&quot;</strong> sambil melambaikan tangan ke arah kamera hingga terkumpul 200+ sampel.<div style="display:contents" dir="ltr"><figure id="319f9660-f776-8020-8436-e4b28d5c9674" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/d86cbb36-7ba5-44d5-bf23-7a361590ad38.png"><img style="width:388.30252100840335px" src="Modul%20SG%20i-Smile%20Minggu-1/d86cbb36-7ba5-44d5-bf23-7a361590ad38.png"/></a><figcaption><em>Gambar 30. Perekaman postur Tangan Tidak Iziinnn</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80f8-a9e7-c37ebeebc11e" class="numbered-list" start="6"><li>Klik <strong>Train Model</strong> dan tunggu hingga prosesnya selesai.<div style="display:contents" dir="ltr"><figure id="319f9660-f776-8080-85a2-d44870adf837" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%2014.png"><img style="width:681.984375px" src="Modul%20SG%20i-Smile%20Minggu-1/image%2014.png"/></a><figcaption><em>Gambar 31. Proses pelatihan model Pose</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-8030-aaf7-c5abb4ad8cd9" class="numbered-list" start="7"><li>Pada panel <em>Preview</em>, gerakkan tubuh Anda sesuai dengan kelas yang dibuat dan perhatikan bilah <em>Output</em>. Pastikan:<div style="display:contents" dir="auto"><ul id="9623bdff-da51-47e9-8d72-1632cfee973e" class="bulleted-list"><li style="list-style-type:disc">Saat berdiri tegap biasa → bar <strong>Neutral</strong> yang tinggi.</li></ul></div><div style="display:contents" dir="auto"><ul id="770996b7-fe51-48e3-bfbb-7f7aed776753" class="bulleted-list"><li style="list-style-type:disc">Saat melakukan gestur Iziinnn → bar <strong>Iziinnn</strong> yang tinggi.</li></ul></div><div style="display:contents" dir="auto"><ul id="83a1fcc1-64fd-48a4-bf4d-c85bbb4432b1" class="bulleted-list"><li style="list-style-type:disc">Saat melambaikan tangan → bar <strong>Tidak Iziinnn</strong> yang tinggi.</li></ul></div><div style="display:contents" dir="auto"><p id="096a93ba-a35f-4218-9e41-8ab51f193a82" class="">Jika model mengenali ketiga kondisi dengan akurasi mendekati 100%, maka model telah bekerja dengan baik.</p></div><div style="display:contents" dir="ltr"><figure id="319f9660-f776-8099-98c1-f93fbc07772d" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%2015.png"><img style="width:681.96875px" src="Modul%20SG%20i-Smile%20Minggu-1/image%2015.png"/></a><figcaption><em>Gambar 32. Evaluasi model gerakan</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><hr id="317f9660-f776-809b-b2ba-fafc47470ce8"/></div><div style="display:contents" dir="auto"><p id="317f9660-f776-80ae-86b9-c91dc937d822" class=""><strong>F. Menyimpan &amp; Membagikan Model (Export Model)</strong><br/>Model yang sudah selesai dilatih dan diuji tidak hanya berhenti di <em>website</em> ini saja. Anda dapat mengekspornya untuk digunakan pada proyek <em>coding</em> sungguhan (misalnya membuat <em>website</em> atau aplikasi <em>smartphone</em> berbasis AI).</p></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-8001-979f-ef5168bc40c8" class="numbered-list" start="1"><li>Pada panel <em>Preview</em>, perhatikan tombol di bagian atas dan klik <strong>Export Model</strong>.<div style="display:contents" dir="ltr"><figure id="319f9660-f776-80bb-874e-f858f4e1e656" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%2016.png"><img style="width:240px" src="Modul%20SG%20i-Smile%20Minggu-1/image%2016.png"/></a><figcaption><em>Gambar 33. Tempat tombol Export Model</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-8071-83a6-d31292822f5e" class="numbered-list" start="2"><li>Akan muncul sebuah <em>pop-up</em>. Anda memiliki beberapa pilihan:<div style="display:contents" dir="auto"><ul id="317f9660-f776-805a-b80d-d88afbec0fac" class="bulleted-list"><li style="list-style-type:disc"><strong>Upload (Shareable link):</strong> Model Anda akan diunggah ke server <em>cloud</em> Google, dan Anda akan mendapatkan <em>link</em> yang bisa dibagikan atau disisipkan ke dalam <em>code</em> (HTML/JavaScript).</li></ul></div><div style="display:contents" dir="auto"><ul id="317f9660-f776-801c-a7aa-ef9731e8e368" class="bulleted-list"><li style="list-style-type:disc"><strong>Download:</strong> Anda dapat mengunduh model mentahnya dalam bentuk <em>Tensorflow.js</em> (untuk web) atau <em>Tensorflow Lite</em> (untuk Android/Mikrokontroler).</li></ul></div><div style="display:contents" dir="ltr"><figure id="319f9660-f776-801a-8ada-f3eafd1afc86" class="image"><a href="Modul%20SG%20i-Smile%20Minggu-1/image%2017.png"><img style="width:681.96875px" src="Modul%20SG%20i-Smile%20Minggu-1/image%2017.png"/></a><figcaption><em>Gambar 34. Menu Export Model</em></figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><hr id="317f9660-f776-8009-b252-c645d2ec6d99"/></div><div style="display:contents" dir="auto"><p id="317f9660-f776-80b7-8626-df179808b272" class=""><strong>G. Fitur Tambahan (</strong><em><strong>Hyperparameter</strong></em><strong>)</strong><br/>Pada bagian <em>Training</em>, jika Anda menekan menu <em>Advanced</em>, Anda akan menemukan beberapa pengaturan lanjutan (<em>hyperparameter</em>) yang bisa diubah untuk meningkatkan akurasi model:</p></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80a2-81ff-ddc8c40455e8" class="numbered-list" start="1"><li><strong>Epochs</strong><br/>Satu <em>epoch</em> berarti bahwa setiap sampel dalam <em>dataset</em> pelatihan telah melewati model pelatihan setidaknya satu kali. Jika kita mengatur <em>epochs</em> menjadi 50, ini berarti model yang kita latih akan membaca ulang seluruh <em>dataset</em> pelatihan sebanyak 50 kali. Jumlah <em>epoch</em> memengaruhi seberapa baik model kita dapat belajar dari data. Semakin besar jumlahnya, semakin baik model belajar memprediksi. Namun, jika terlalu banyak, dapat mengakibatkan <em>overfitting</em> (model hanya hafal data latih, tapi gagal mengenali data baru di dunia nyata).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-8006-bcd2-c37dec89d0ed" class="numbered-list" start="2"><li><strong>Batch Size<br/></strong><em>Batch</em> adalah sejumlah sampel yang digunakan dalam satu iterasi pelatihan. Misalnya, jika kita memiliki 80 gambar dan memilih <em>batch size</em> 16, data akan dibagi menjadi (80 / 16) = 5 <em>batch</em>. <em>Batch size</em> yang lebih besar dapat mempercepat pelatihan, tetapi memerlukan lebih banyak memori komputer.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-8077-96f5-d08625401399" class="numbered-list" start="3"><li><strong>Learning Rate<br/></strong><em>Learning rate</em> adalah parameter yang menentukan seberapa &quot;besar langkah&quot; model dalam belajar ketika menyesuaikan diri selama pelatihan. Jika <em>learning rate</em> terlalu besar, model dapat melewatkan titik minimum (titik akurasi terbaik). Jika terlalu kecil, pelatihan bisa berjalan sangat lambat.</li></ol></div><div style="display:contents" dir="auto"><hr id="317f9660-f776-8071-97ab-f79a0605b49c"/></div><div style="display:contents" dir="auto"><p id="317f9660-f776-803f-ad2c-e2a636b7005e" class=""><strong>H. Challenge </strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-8043-95fa-cb9a9f24034f" class="numbered-list" start="1"><li>Buatlah <strong>satu </strong><em><strong>Project</strong></em><strong> mandiri</strong> menggunakan Teachable Machine dengan tema yang <strong>berbeda</strong> dari contoh yang ada di modul ini (Bebas berkreasi).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80eb-a0bd-ccba9eef97de" class="numbered-list" start="2"><li>Pilih salah satu jenis proyek: <em>Image project</em> <strong>atau</strong> <em>Pose project</em>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-80d8-89b8-f2ef6cb0181d" class="numbered-list" start="3"><li>Jelaskan tahapan yang Anda lalui dari awal mengumpulkan data, <em>training</em>, hingga hasil <em>testing/preview</em>nya. Lakukan <em>screenshot</em> pada saat pengujian berhasil.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="317f9660-f776-805a-9a9c-d8910ade6f52" class="numbered-list" start="4"><li>Kumpulkan hasil <em>screenshot</em> beserta penjelasannya ke dalam satu dokumen <strong>berformat PDF</strong>, lalu unggah pada <em>form</em> yang telah disediakan oleh panitia <em>Study Group</em>.</li></ol></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
